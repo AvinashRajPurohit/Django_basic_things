@@ -1,0 +1,134 @@
+{% include 'kyc_form/base.html' %}
+<style>
+    body {
+  background: #ebeff5;
+  color: #333333;
+}
+.ui.button {
+width: 200px;
+border-radius: 0px !important;
+}
+.block-center{
+    text-align: center !important;
+}
+
+</style>
+{% block content %}
+<form id="myForm" class="ui form" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h4 class="ui dividing header">KYC</h4>
+  <div class="field">
+    <label>Name</label>
+  <div class="three fields">
+    <div class="field">
+      <label>First name</label>
+      <input type="text" name="first_name" placeholder="First Name">
+    </div>
+    <div class="field">
+      <label>Middle name</label>
+      <input type="text" name="middle_name" placeholder="Middle Name">
+    </div>
+    <div class="field">
+      <label>Last name</label>
+      <input type="text" name="last_name" placeholder="Last Name">
+    </div>
+  </div>
+  </div>
+    <div class="field">
+    <label>Company Name</label>
+      <div class="field">
+        <input type="text" name="company_name" placeholder="Company Name">
+      </div>
+        </div>
+        <hr style="border-top: dotted 1px;">
+      <div class="fields">
+    <div class="field">
+      <label>Registered Mobile No.</label>
+      <input type="text" name="phone_no" placeholder="Phone No.">
+    </div>
+      </div>
+    <hr style="border-top: dotted 1px;">
+    <div class="field">
+  <div class="three fields">
+    <div class="field">
+      <label>Registered Email Id</label>
+      <input type="text" name="email_id" placeholder="Email-Id">
+    </div>
+    <div class="field">
+      <label>Date Of Birth (As Per Pan Card)</label>
+      <input type="date" name="dob" placeholder="Date Of Birth">
+    </div>
+    <div class="field">
+      <label>Pan Card Number</label>
+      <input type="text" name="pan_no" placeholder="Pan Card Number...">
+    </div>
+  </div>
+  </div>
+    <hr style="border-top: dotted 1px;">
+      <div class="three fields">
+    <div class="field">
+      <label>Pin Code</label>
+      <input type="text" name="pin_code" placeholder="Enter pin code">
+    </div>
+    <div class="field">
+      <label>District</label>
+      <input type="text"  name="district" placeholder="Enter District Name">
+    </div>
+    <div class="field">
+      <label>State</label>
+      <input type="text" name="state" placeholder="Enter State Name">
+    </div>
+  </div>
+  <div class="field">
+    <label>Address(As Per Adhaar Back Side)</label>
+    <div class="fields">
+      <div class="twelve wide field">
+        <input type="text" name="address" placeholder="Street Address">
+      </div>
+        <label>City</label>
+      <div class="four wide field">
+        <input type="text" name="city" placeholder="City">
+      </div>
+    </div>
+  </div>
+    <div class="ui blue message">Note-Clear Self Attested Image is required</div>
+      <div class="two fields">
+    <div class="field">
+      <label>Adhaar Card</label>
+      <input placeholder="choose adhaar card" name="adhaar_img" type="file">
+        <div class="ui small images">
+          <img src="/media/adhaar1.jpg">
+          <img src="/media/adhaar2.jpg">
+        </div>
+    </div>
+    <div class="field">
+      <label>Pan Card</label>
+      <input placeholder="choose pan card" name="pan_img" type="file">
+        <div class="ui small images">
+          <img src="/media/pan.jpg">
+        </div>
+    </div>
+  </div>
+    <h3>Steps to upload:</h3>
+    <ul>
+      <li>Download E-Adhaar from <a href="https://uidai.gov.in/">https://uidai.gov.in/</a></li>
+      <li>Take a print and selt attest document</li>
+      <li>Scan and upload the self attest copy of E-Adhaar here</li>
+    </ul>
+    <h4>Steps to upload:</h4>
+    <ul>
+      <li>Only JPG/JPEG/PDF Format are allowed</li>
+      <li>Document must be latest and clear</li>
+    </ul>
+
+  <div class="block-center">
+        <button class="ui primary button" type="submit">Update KYC</button>
+  </div>
+    <div style="padding-bottom:10px">
+
+    </div>
+</form>
+<script>
+  document.getElementById("myForm").reset();
+</script>
+{% endblock content %}
